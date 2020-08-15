@@ -25,7 +25,7 @@ fi
 profanity=$(python3 /check.py "$comment")
 
 if [ "$profanity" = "1" ]; then
-    echo "$author said something bad"
+    echo "::set-output name=RESULT::User said something bad"
 
     curl --include --verbose --fail \
     -H "Accept: application/json" \
@@ -34,5 +34,5 @@ if [ "$profanity" = "1" ]; then
     --request POST --data '{"body": "@'$author' Please mind your language."}' \
     $comments_url
 else
-    echo "$author said something good"
+    echo "::set-output name=RESULT::User said something good"
 fi
