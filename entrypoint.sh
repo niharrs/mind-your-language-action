@@ -25,7 +25,7 @@ fi
 profanity=$(python3 /check.py "$comment")
 
 if [ "$profanity" = "1" ]; then
-    echo "User said something bad"
+    echo "::set-output name=result::bad"
 
     curl --include --verbose --fail \
     -H "Accept: application/json" \
