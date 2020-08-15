@@ -33,4 +33,6 @@ if [ "$profanity" = "1" ]; then
     -H "Authorization: token ${GITHUB_TOKEN}" \
     --request POST --data '{"body": "@'$author' Please mind your language."}' \
     $comments_url
+else
+    echo "User said something good"
 fi
